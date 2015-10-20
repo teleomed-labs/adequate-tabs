@@ -1,6 +1,5 @@
-class AdequateTabs
-  constructor: ->
-  greeting: -> 'Hello World'
+TabbedView = require('./tabbed.coffee')
 
 root = exports ? window
-root.AdequateTabs = AdequateTabs
+root.AdequateTabs =
+  TabbedView: TabbedView

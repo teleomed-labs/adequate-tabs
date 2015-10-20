@@ -7,13 +7,12 @@
     "jquery": "~2.1.0",
     "backbone": "~1.2.3",
     "underscore": "~1.8.3",
-    "marionette": "~2.4.3",
+    "marionette": "~2.4.3"
   },
   "ignore": [
     "**/.*",
     "src",
     "test",
-    "dist",
-    "node_modules",
-  ],
+    "node_modules"
+  ]
 }

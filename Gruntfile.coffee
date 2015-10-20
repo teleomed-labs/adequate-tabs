@@ -10,32 +10,32 @@ module.exports = (grunt) ->
   yeomanConfig =
     src: 'src'
     dist : 'dist'
+
   grunt.initConfig
     yeoman: yeomanConfig
 
-    
-    coffee:
-      dist:
-        files: [
-          expand: true
-          cwd: '<%= yeoman.src %>'
-          src: '{,*/}*.coffee'
-          dest: '<%= yeoman.dist %>'
-          ext: '.js'
-        ]
+    browserify:
+      dev:
+        src:  "src/adequate-tabs.coffee"
+        dest: "dist/adequate-tabs.js"
+        options:
+          debug: true
+          transform: [ 'coffeeify' ]
+
     uglify:
       build:
         src: '<%=yeoman.dist %>/adequate-tabs.js'
         dest: '<%=yeoman.dist %>/adequate-tabs.min.js'
+
     mochaTest:
-      test: 
-        options: 
+      test:
+        options:
           reporter: 'spec'
           compilers: 'coffee:coffee-script'
         src: ['test/**/*.coffee']
 
     grunt.registerTask 'default', [
       'mochaTest'
-      'coffee'
+      'browserify'
       'uglify'
     ]
