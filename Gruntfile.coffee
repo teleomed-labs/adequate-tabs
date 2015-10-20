@@ -21,6 +21,8 @@ module.exports = (grunt) ->
         options:
           debug: true
           transform: [ 'coffeeify' ]
+          browserifyOptions:
+            standalone: 'AdequateTabs'
 
     uglify:
       build:
