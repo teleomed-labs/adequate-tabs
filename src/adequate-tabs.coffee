@@ -1,5 +1,4 @@
 TabbedView = require('./tabbed.coffee')
 
-root = exports ? window
-root.AdequateTabs =
+module.exports =
   TabbedView: TabbedView
