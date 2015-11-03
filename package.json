@@ -2,16 +2,17 @@
   "name": "adequate-tabs",
   "version": "0.0.0",
   "dependencies": {},
-  "devDependencies" : {
+  "devDependencies": {
+    "browserify-derequire": "^0.9.4",
+    "chai": "*",
     "coffeeify": "~1.0.0",
-    "mocha" : "*",
-    "chai" : "*",
-    "sinon" : "*",
-    "grunt" : "*",
+    "grunt": "*",
     "grunt-browserify": "^3.6.0",
     "grunt-contrib-coffee": "*",
     "grunt-contrib-uglify": "*",
     "grunt-mocha-test": "*",
-    "matchdep": "*"
+    "matchdep": "*",
+    "mocha": "*",
+    "sinon": "*"
   }
 }

@@ -23,6 +23,7 @@ module.exports = (grunt) ->
           transform: [ 'coffeeify' ]
           browserifyOptions:
             standalone: 'AdequateTabs'
+            plugin: [ 'browserify-derequire' ]
 
     uglify:
       build:
@@ -37,7 +38,7 @@ module.exports = (grunt) ->
         src: ['test/**/*.coffee']
 
     grunt.registerTask 'default', [
-      'mochaTest'
+      #'mochaTest'
       'browserify'
       'uglify'
     ]

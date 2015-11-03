@@ -1,14 +1,14 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.AdequateTabs = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.AdequateTabs = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 var TabbedView;
 
-TabbedView = require('./tabbed.coffee');
+TabbedView = _dereq_('./tabbed.coffee');
 
 module.exports = {
   TabbedView: TabbedView
 };
 
 
-},{"./tabbed.coffee":3}],2:[function(require,module,exports){
+},{"./tabbed.coffee":3}],2:[function(_dereq_,module,exports){
 var Router,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -134,10 +134,10 @@ Router = (function(superClass) {
 module.exports = Router;
 
 
-},{}],3:[function(require,module,exports){
+},{}],3:[function(_dereq_,module,exports){
 var TabbedView, Tabs, handleKeyPress, tabbed_views;
 
-Tabs = require('./tabs.coffee');
+Tabs = _dereq_('./tabs.coffee');
 
 tabbed_views = [];
 
@@ -220,12 +220,12 @@ TabbedView = Marionette.LayoutView.extend({
 module.exports = TabbedView;
 
 
-},{"./tabs.coffee":4}],4:[function(require,module,exports){
+},{"./tabs.coffee":4}],4:[function(_dereq_,module,exports){
 var ButtonBarItemView, ButtonBarView, Controller, MenuItemView, MenuView, Router, Tab, TabList, Tabs, controller,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
-Router = require('./router.coffee');
+Router = _dereq_('./router.coffee');
 
 
 /*

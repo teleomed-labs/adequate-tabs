@@ -1,7 +1,7 @@
 {
   "name": "adequate-tabs",
   "description": "A solution for tabbed views in Marionette",
-  "main": "dist/adequate-tabs.min.js",
+  "main": "dist/adequate-tabs.js",
   "version": "0.0.0",
   "dependencies": {
     "jquery": "~2.1.0",
