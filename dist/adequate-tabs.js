@@ -673,15 +673,12 @@ Tabs = (function(superClass) {
   Tabs.prototype.autoShowFirstTab = function() {
     var first_tab;
     if (this.options.show_initial_tab) {
-      if (this.model.get('current_tab_id')) {
+      first_tab = this.collection.first();
+      if (first_tab) {
+        this.setCurrentTabId(first_tab.get('id'), {
+          replace: true
+        });
         this.showCurrentTab();
-      } else {
-        first_tab = this.collection.first();
-        if (first_tab) {
-          this.setCurrentTabId(first_tab.get('id'), {
-            replace: true
-          });
-        }
       }
     }
   };

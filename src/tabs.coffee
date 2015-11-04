@@ -308,15 +308,10 @@ class Tabs extends Marionette.Behavior
     return
   autoShowFirstTab: ->
     if @options.show_initial_tab
-      if @model.get('current_tab_id')
-        # DNR TODO this is causing tabs to render twice in some cases e.g. style tab of edit panel
-        # but without it, no tab is shown when closing and reopening the edit panel
-        # fixed by tracking 'shown' state on tab model. not perfect but will do for now
+      first_tab = @collection.first()
+      if first_tab
+        @setCurrentTabId first_tab.get('id'), replace: true
         @showCurrentTab()
-      else
-        first_tab = @collection.first()
-        if first_tab
-          @setCurrentTabId first_tab.get('id'), replace: true
     return
   createNav: ->
     _.defaults @options.nav,
