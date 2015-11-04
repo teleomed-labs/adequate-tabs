@@ -1,4 +1,5 @@
 Tabs = require('./tabs.coffee')
+
 tabbed_views = []
 
 class TabbedView extends Marionette.LayoutView

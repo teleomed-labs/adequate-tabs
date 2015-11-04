@@ -1,4 +1,4 @@
-TabbedView = require('./tabbed.coffee')
+TabbedView = require('./tabbed_view.coffee')
 
 module.exports =
   TabbedView: TabbedView
