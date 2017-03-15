@@ -16,9 +16,12 @@ module.exports = (grunt) ->
 
     browserify:
       dev:
-        src:  "src/adequate-tabs.coffee"
-        dest: "dist/adequate-tabs.js"
+        files:
+          "dist/adequate-tabs.js": "src/adequate-tabs.coffee"
+
         options:
+          keepAlive: true
+          watch: true
           debug: true
           transform: [ 'coffeeify' ]
           browserifyOptions:
