@@ -9,15 +9,16 @@ controller = undefined
 
 class Tabs extends Marionette.Behavior
   initialize: ->
-    @options = @options or {}
+    @options or= {}
 
     _.defaults @options,
       tabs: []
-      routing: true
+      routing: false
       show_initial_tab: true
       initial_tab_id: ''
       wraparound: false
 
+    @options.region = _.result(@options, 'region')
     if not @options.region
       throw new Error('Tabs behavior requires a region')
 
@@ -160,6 +161,7 @@ class Tabs extends Marionette.Behavior
       view: ButtonBarView
       viewOptions: {}
 
+    @options.nav.region = _.result(@options, 'nav')
     if !@options.nav.region
       throw new Error('Tab nav requires a region')
 

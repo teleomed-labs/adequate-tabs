@@ -27,10 +27,11 @@ class TabbedView extends Marionette.LayoutView
   behaviors: ->
     tab_options = _.extend({
       behaviorClass: Tabs
-      region: @content
+      region: => @getRegion('content')
       tabs: []
-      nav: region: @nav
+      nav: => @getRegion('nav')
     }, _.result(this, 'tabOptions'))
+
     { Tabs: tab_options }
 
 module.exports = TabbedView
