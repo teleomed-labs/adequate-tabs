@@ -12,4 +12,4 @@ class Controller extends Marionette.Object
   getCurrentTabIdForScope: (scope) ->
     @scope_model.get(scope) or ''
 
-module.exports = Object
+module.exports = Controller
