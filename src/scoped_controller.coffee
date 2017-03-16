@@ -1,4 +1,4 @@
-class Controller extends Marionette.Controller
+class Controller extends Marionette.Object
   initialize: ->
     @cid = _.uniqueId('controller')
     @scope_model = new (Backbone.Model)
@@ -12,4 +12,4 @@ class Controller extends Marionette.Controller
   getCurrentTabIdForScope: (scope) ->
     @scope_model.get(scope) or ''
 
-module.exports = Controller
+module.exports = Object
