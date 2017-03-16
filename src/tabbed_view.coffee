@@ -2,7 +2,7 @@ Tabs = require('./tabs.coffee')
 
 tabbed_views = []
 
-class TabbedView extends Marionette.LayoutView
+class TabbedView extends Marionette.View
   className: 'tabbed'
   template: _.template '''
     <div class="tab-nav"></div><div class="tab-content"></div>
@@ -27,11 +27,11 @@ class TabbedView extends Marionette.LayoutView
   behaviors: ->
     tab_options = _.extend({
       behaviorClass: Tabs
-      region: => @getRegion('content')
+      region: 'FIXME'
       tabs: []
-      nav: => @getRegion('nav')
+      nav: 'FIXME'
     }, _.result(this, 'tabOptions'))
 
-    { Tabs: tab_options }
+    Tabs: tab_options
 
 module.exports = TabbedView

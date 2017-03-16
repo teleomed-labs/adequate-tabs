@@ -13,14 +13,10 @@ class Tabs extends Marionette.Behavior
 
     _.defaults @options,
       tabs: []
-      routing: false
+      routing: true
       show_initial_tab: true
       initial_tab_id: ''
       wraparound: false
-
-    @options.region = _.result(@options, 'region')
-    if not @options.region
-      throw new Error('Tabs behavior requires a region')
 
     @cid = _.uniqueId('tabs')
     @view.tabs = this
@@ -52,14 +48,15 @@ class Tabs extends Marionette.Behavior
         scope: @options.scope
         appRoutes: '(:tab_id)(/)(*params)': 'routeTabId')
 
-  onShow: ->
+  onRender: ->
     # set up model events
     @listenTo @model, 'change:current_tab_id', @onChangeCurrentTabId
     @on 'next', @showNextTab
     @on 'previous', @showPreviousTab
     @addTabs @options.tabs
-    if @options.nav
-      @createNav()
+
+    @createNav() if @options.nav
+
     _.defer @autoShowFirstTab
 
   onDestroy: ->
@@ -91,6 +88,9 @@ class Tabs extends Marionette.Behavior
 
   showCurrentTab: (options) ->
     options = options or {}
+
+    # TEMP FIX
+    @options.region = @view.getRegion('content')
 
     tab = @getCurrentTab()
 
@@ -157,13 +157,13 @@ class Tabs extends Marionette.Behavior
         @showCurrentTab()
 
   createNav: ->
+    @options.nav = {}
     _.defaults @options.nav,
       view: ButtonBarView
       viewOptions: {}
 
-    @options.nav.region = _.result(@options, 'nav')
-    if !@options.nav.region
-      throw new Error('Tab nav requires a region')
+    # TEMP FIX
+    @options.nav.region = @view.getRegion('nav')
 
     navViewOptions = _.extend(@options.nav.viewOptions,
       tabs: this

@@ -1,4 +1,4 @@
-class ButtonBarItemView extends Marionette.LayoutView
+class ButtonBarItemView extends Marionette.View
   tagName: 'li'
   className: 'Tab'
   template: _.template '<%= label %>'
@@ -19,7 +19,8 @@ class ButtonBarView extends Marionette.CollectionView
     # experimental support for tab.visible property
     @listenTo @collection, 'change:visible', @onChangeTabVisible
 
-  childEvents: 'item:click': 'onClickItem'
+  childViewEvents:
+    'item:click': 'onClickItem'
 
   onClickItem: (child) ->
     @tabs.setCurrentTabId child.model.get('id')
@@ -36,7 +37,7 @@ class ButtonBarView extends Marionette.CollectionView
     ChildView = undefined
     visible_children = @collection.where(visible: true)
     _(visible_children).each ((child, index) ->
-      ChildView = @getChildView(child)
+      ChildView = @childView(child)
       @addChild child, ChildView, index
       return
     ), this
@@ -55,7 +56,7 @@ class ButtonBarView extends Marionette.CollectionView
       view.remove()
       @tabs.showTabByIndex previous_tab_index
 
-class MenuItemView extends Marionette.LayoutView
+class MenuItemView extends Marionette.View
   tagName: 'option'
   template: _.template('<%= label %>')
   initialize: ->
