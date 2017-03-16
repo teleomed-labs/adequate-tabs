@@ -1,4 +1,4 @@
-class ButtonBarItemView extends Marionette.ItemView
+class ButtonBarItemView extends Marionette.LayoutView
   tagName: 'li'
   className: 'Tab'
   template: _.template '<%= label %>'
@@ -55,7 +55,7 @@ class ButtonBarView extends Marionette.CollectionView
       view.remove()
       @tabs.showTabByIndex previous_tab_index
 
-class MenuItemView extends Marionette.ItemView
+class MenuItemView extends Marionette.LayoutView
   tagName: 'option'
   template: _.template('<%= label %>')
   initialize: ->
