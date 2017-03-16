@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.AdequateTabs = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.AdequateTabs = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/wesvetter/Desktop/Code/adequate-tabs/src/adequate-tabs.coffee":[function(_dereq_,module,exports){
 var TabbedView;
 
 TabbedView = _dereq_('./tabbed_view.coffee');
@@ -8,7 +8,7 @@ module.exports = {
 };
 
 
-},{"./tabbed_view.coffee":6}],2:[function(_dereq_,module,exports){
+},{"./tabbed_view.coffee":"/Users/wesvetter/Desktop/Code/adequate-tabs/src/tabbed_view.coffee"}],"/Users/wesvetter/Desktop/Code/adequate-tabs/src/nav.coffee":[function(_dereq_,module,exports){
 var ButtonBarItemView, ButtonBarView, MenuItemView, MenuView,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -32,7 +32,7 @@ ButtonBarItemView = (function(superClass) {
 
   return ButtonBarItemView;
 
-})(Marionette.ItemView);
+})(Marionette.View);
 
 ButtonBarView = (function(superClass) {
   extend(ButtonBarView, superClass);
@@ -57,7 +57,7 @@ ButtonBarView = (function(superClass) {
     return this.listenTo(this.collection, 'change:visible', this.onChangeTabVisible);
   };
 
-  ButtonBarView.prototype.childEvents = {
+  ButtonBarView.prototype.childViewEvents = {
     'item:click': 'onClickItem'
   };
 
@@ -82,7 +82,7 @@ ButtonBarView = (function(superClass) {
       visible: true
     });
     _(visible_children).each((function(child, index) {
-      ChildView = this.getChildView(child);
+      ChildView = this.childView(child);
       this.addChild(child, ChildView, index);
     }), this);
   };
@@ -120,7 +120,7 @@ MenuItemView = (function(superClass) {
 
   return MenuItemView;
 
-})(Marionette.ItemView);
+})(Marionette.View);
 
 MenuView = (function(superClass) {
   extend(MenuView, superClass);
@@ -178,7 +178,7 @@ module.exports = {
 };
 
 
-},{}],3:[function(_dereq_,module,exports){
+},{}],"/Users/wesvetter/Desktop/Code/adequate-tabs/src/router.coffee":[function(_dereq_,module,exports){
 var Router,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -295,7 +295,7 @@ Router = (function(superClass) {
 module.exports = Router;
 
 
-},{}],4:[function(_dereq_,module,exports){
+},{}],"/Users/wesvetter/Desktop/Code/adequate-tabs/src/scoped_controller.coffee":[function(_dereq_,module,exports){
 var Controller,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -328,12 +328,12 @@ Controller = (function(superClass) {
 
   return Controller;
 
-})(Marionette.Controller);
+})(Marionette.Object);
 
 module.exports = Controller;
 
 
-},{}],5:[function(_dereq_,module,exports){
+},{}],"/Users/wesvetter/Desktop/Code/adequate-tabs/src/tab.coffee":[function(_dereq_,module,exports){
 var Tab,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -392,7 +392,7 @@ Tab = (function(superClass) {
 module.exports = Tab;
 
 
-},{}],6:[function(_dereq_,module,exports){
+},{}],"/Users/wesvetter/Desktop/Code/adequate-tabs/src/tabbed_view.coffee":[function(_dereq_,module,exports){
 var TabbedView, Tabs, tabbed_views,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -434,11 +434,9 @@ TabbedView = (function(superClass) {
     var tab_options;
     tab_options = _.extend({
       behaviorClass: Tabs,
-      region: this.content,
+      region: 'FIXME',
       tabs: [],
-      nav: {
-        region: this.nav
-      }
+      nav: 'FIXME'
     }, _.result(this, 'tabOptions'));
     return {
       Tabs: tab_options
@@ -447,12 +445,12 @@ TabbedView = (function(superClass) {
 
   return TabbedView;
 
-})(Marionette.LayoutView);
+})(Marionette.View);
 
 module.exports = TabbedView;
 
 
-},{"./tabs.coffee":7}],7:[function(_dereq_,module,exports){
+},{"./tabs.coffee":"/Users/wesvetter/Desktop/Code/adequate-tabs/src/tabs.coffee"}],"/Users/wesvetter/Desktop/Code/adequate-tabs/src/tabs.coffee":[function(_dereq_,module,exports){
 var ButtonBarView, Controller, MenuView, Router, Tab, TabList, Tabs, controller, ref,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
@@ -480,7 +478,7 @@ Tabs = (function(superClass) {
 
   Tabs.prototype.initialize = function() {
     var initial_tab_id;
-    this.options = this.options || {};
+    this.options || (this.options = {});
     _.defaults(this.options, {
       tabs: [],
       routing: true,
@@ -488,9 +486,6 @@ Tabs = (function(superClass) {
       initial_tab_id: '',
       wraparound: false
     });
-    if (!this.options.region) {
-      throw new Error('Tabs behavior requires a region');
-    }
     this.cid = _.uniqueId('tabs');
     this.view.tabs = this;
     if (!controller) {
@@ -523,7 +518,7 @@ Tabs = (function(superClass) {
     }
   };
 
-  Tabs.prototype.onShow = function() {
+  Tabs.prototype.onRender = function() {
     this.listenTo(this.model, 'change:current_tab_id', this.onChangeCurrentTabId);
     this.on('next', this.showNextTab);
     this.on('previous', this.showPreviousTab);
@@ -576,6 +571,7 @@ Tabs = (function(superClass) {
   Tabs.prototype.showCurrentTab = function(options) {
     var last_tab, last_tab_id, tab, tab_view;
     options = options || {};
+    this.options.region = this.view.getRegion('content');
     tab = this.getCurrentTab();
     if (tab && tab.isValid()) {
       if (tab.get('shown')) {
@@ -668,13 +664,12 @@ Tabs = (function(superClass) {
 
   Tabs.prototype.createNav = function() {
     var navViewOptions;
+    this.options.nav = {};
     _.defaults(this.options.nav, {
       view: ButtonBarView,
       viewOptions: {}
     });
-    if (!this.options.nav.region) {
-      throw new Error('Tab nav requires a region');
-    }
+    this.options.nav.region = this.view.getRegion('nav');
     navViewOptions = _.extend(this.options.nav.viewOptions, {
       tabs: this,
       collection: this.collection
@@ -703,5 +698,5 @@ Tabs.MenuView = MenuView;
 module.exports = Tabs;
 
 
-},{"./nav.coffee":2,"./router.coffee":3,"./scoped_controller.coffee":4,"./tab.coffee":5}]},{},[1])(1)
+},{"./nav.coffee":"/Users/wesvetter/Desktop/Code/adequate-tabs/src/nav.coffee","./router.coffee":"/Users/wesvetter/Desktop/Code/adequate-tabs/src/router.coffee","./scoped_controller.coffee":"/Users/wesvetter/Desktop/Code/adequate-tabs/src/scoped_controller.coffee","./tab.coffee":"/Users/wesvetter/Desktop/Code/adequate-tabs/src/tab.coffee"}]},{},["/Users/wesvetter/Desktop/Code/adequate-tabs/src/adequate-tabs.coffee"])("/Users/wesvetter/Desktop/Code/adequate-tabs/src/adequate-tabs.coffee")
 });
