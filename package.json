@@ -14,5 +14,6 @@
     "matchdep": "*",
     "mocha": "*",
     "sinon": "*"
-  }
+  },
+  "main": "dist/adequate-tabs.js"
 }
